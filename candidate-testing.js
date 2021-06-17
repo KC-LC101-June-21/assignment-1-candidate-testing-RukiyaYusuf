@@ -9,7 +9,7 @@ let candidateName = " "
 let question = "Who was the first American woman in space? "
 let correctAnswer = 'Sally Ride'
 let candidateAnswer = ""
-let questions = ["1) Who was the first American woman in space? ", "2) True or false: 5 kilometer = 5000 meters? ", "3)(5 + 3)/2 * 10 = ? ", "4) Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "5) What is the minimum crew size for the ISS? "]
+let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer = 5000 meters? ", "(5 + 3)/2 * 10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", " What is the minimum crew size for the ISS? "]
 let correctAnswers = ["Sally Ride", 'true', '40', "Trajectory", '3']
 let candidateAnswers = []
 
@@ -21,7 +21,7 @@ candidateName = input.question('Candidate Name: ')
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 for (let i = 0; i < questions.length; i++) {
-	candidateAnswers[i] = input.question(questions[i]);
+	candidateAnswers[i] = input.question(`${(i+1)} ${questions[i]}`);
 }
 
 }
@@ -33,9 +33,9 @@ function gradeQuiz(candidateAnswers) {
   let numOfCorrect = 0;
   for (let i = 0; i < questions.length; i++) {
     if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      numOfCorrect++;
+     numOfCorrect++ 
   }
-   console.log(` ${questions[i]}\nCandidate answer: ${candidateAnswers[i]}\nCorrect answer: ${correctAnswers[i]}`+'\n')
+   console.log(`${i + 1}) ${questions[i]}\nCandidate answer: ${candidateAnswers[i]}\nCorrect answer: ${correctAnswers[i]}`+'\n')
   }
   let grade = (numOfCorrect / questions.length) * 100;
   console.log(`Overall Grade: ${grade}% (${numOfCorrect} of ${questions.length} responses correct)`);
